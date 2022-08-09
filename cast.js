@@ -1,12 +1,8 @@
 const { publishCast } = require("@standard-crypto/farcaster-js");
 const { ethers } = require("ethers");
 
-document.getElementById("button").addEventListener("click", sendCast);
+document.getElementById("cast-button").addEventListener("click", sendCast);
 let text = document.getElementById("textarea");
-
-const mnemonic = "";
-
-let privateKey = "";
 
 function getPkeyFromMnemonic(mnemonic) {
   const hdNode = ethers.utils.HDNode.fromMnemonic(mnemonic).derivePath(
@@ -20,7 +16,22 @@ async function sendCast() {
   getPkeyFromMnemonic(mnemonic);
   try {
     await publishCast(privateKey, text.value);
+
+    document.getElementById("message").textContent = "Cast sent successfully";
+    document.getElementById("message").style.visibility = "visible";
+    setTimeout(() => {
+      document.getElementById("message").style.visibility = "hidden";
+    }, 3000);
   } catch (e) {
+    document.getElementById("message").textContent = "Cast failed to send";
+    document.getElementById("message").style.visibility = "visible";
+    setTimeout(() => {
+      document.getElementById("message").style.visibility = "hidden";
+    }, 3000);
     console.log("there was an error");
   }
+
+  //clear textarea
+  let textarea = document.getElementById("textarea");
+  textarea.value = "";
 }

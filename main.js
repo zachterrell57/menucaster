@@ -1,3 +1,4 @@
+const { app } = require("electron");
 const { menubar } = require("menubar");
 var path = require("path");
 
@@ -5,7 +6,7 @@ const iconPath = path.join(__dirname, "assets", "icon.png");
 
 const mb = menubar({
   icon: iconPath,
-  showDockIcon: true,
+  showDockIcon: false,
   browserWindow: {
     width: 500,
     height: 200,
@@ -30,4 +31,8 @@ mb.on("ready", () => {
 
 mb.on("will-resize", (e) => {
   e.preventDefault();
+});
+
+mb.on("after-create-window", () => {
+  // app.dock.hide();
 });
