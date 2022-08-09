@@ -34,5 +34,5 @@ mb.on("will-resize", (e) => {
 });
 
 mb.on("after-create-window", () => {
-  // app.dock.hide();
+  app.dock.hide();
 });

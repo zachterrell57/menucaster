@@ -128,7 +128,7 @@ body {
   background-color: transparent;
   border: none;
   border-radius: 9999px;
-  padding: 0.25rem 0.25rem 0.25rem 0;
+  padding: 0.25rem 0.25rem 0.25rem 0.25rem;
   margin-left: 25px;
   margin-top: 25px;
   color: #8a99a4;
@@ -150,23 +150,34 @@ body {
 .items {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  padding: 0.25rem;
 }
 
 .seed-phrase-input {
-  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
-.seed-phrase-button {
+#seed-phrase-button {
   padding: 0.25rem;
   background-color: #8064c7;
   color: white;
   border: none;
+  width: 50px;
+  margin-top: 10px;
   border-radius: 9999px;
 }
 
-.seed-phrase-button:hover {
+#seed-phrase-button:hover {
   cursor: pointer;
   background-color: #6944ba;
+}
+
+.seed-phrase-button-text {
+  font-family: "Inter-Medium";
+  font-size: 14px;
+  color: white;
 }
 
 .section-title {
@@ -178,7 +189,7 @@ body {
   padding: 0.25rem 0.25rem 0.25rem 0;
 }
 
-.mnumonic-textarea {
+.mnemonic-textarea {
   border: solid 1px #eaebee;
   outline: none;
   resize: none;
@@ -186,6 +197,25 @@ body {
   font-size: 12px;
   width: 250px;
   height: 60px;
+}
+
+.bottom-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.confirmation-message {
+  display: flex;
+  align-items: center;
+  padding-left: 0.25rem;
+}
+
+.save-message {
+  font-family: "Inter-Medium";
+  font-size: 14px;
+  color: #8064c7;
+  margin-bottom: 0;
+  visibility: visible;
 }
 
 .startup-label {
@@ -197,10 +227,11 @@ body {
 
 .checkbox {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  margin-left: 25px;
 }
 
 #startup-checkbox {
   margin-top: 0.25rem;
-  margin-left: 25px;
 }

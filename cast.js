@@ -1,37 +1,41 @@
 const { publishCast } = require("@standard-crypto/farcaster-js");
-const { ethers } = require("ethers");
 
 document.getElementById("cast-button").addEventListener("click", sendCast);
 let text = document.getElementById("textarea");
 
-function getPkeyFromMnemonic(mnemonic) {
-  const hdNode = ethers.utils.HDNode.fromMnemonic(mnemonic).derivePath(
-    "m/44'/60'/0'/0/1230940800"
-  );
+let message = document.getElementById("message");
 
-  privateKey = hdNode.privateKey;
-}
-
+//do not judge me on the following lines of code
 async function sendCast() {
-  getPkeyFromMnemonic(mnemonic);
-  try {
-    await publishCast(privateKey, text.value);
+  if (
+    localStorage.getItem("privateKey") === "" ||
+    localStorage.getItem("privateKey") === null
+  ) {
+    message.textContent = "Please enter a valid seed phrase";
+    message.style.visibility = "visible";
+    setTimeout(() => {
+      message.style.visibility = "hidden";
+    }, 3000);
+  } else {
+    try {
+      await publishCast(localStorage.getItem("privateKey"), text.value);
 
-    document.getElementById("message").textContent = "Cast sent successfully";
-    document.getElementById("message").style.visibility = "visible";
-    setTimeout(() => {
-      document.getElementById("message").style.visibility = "hidden";
-    }, 3000);
-  } catch (e) {
-    document.getElementById("message").textContent = "Cast failed to send";
-    document.getElementById("message").style.visibility = "visible";
-    setTimeout(() => {
-      document.getElementById("message").style.visibility = "hidden";
-    }, 3000);
-    console.log("there was an error");
+      message.textContent = "Cast sent successfully";
+      message.style.visibility = "visible";
+      setTimeout(() => {
+        message.style.visibility = "hidden";
+      }, 3000);
+    } catch (e) {
+      message.textContent = "Cast failed to send";
+      message.style.visibility = "visible";
+      setTimeout(() => {
+        message.style.visibility = "hidden";
+      }, 3000);
+      console.log("there was an error");
+    }
+
+    //clear textarea
+    let textarea = document.getElementById("textarea");
+    textarea.value = "";
   }
-
-  //clear textarea
-  let textarea = document.getElementById("textarea");
-  textarea.value = "";
 }

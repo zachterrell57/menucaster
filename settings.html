@@ -41,20 +41,25 @@
         <div class="seed-phrase-input">
           <h2 class="section-title">Seed Phrase</h2>
           <textarea
-            class="mnumonic-textarea"
-            id="textarea"
+            class="mnemonic-textarea"
+            id="mnemonic-textarea"
             placeholder="Enter your 12-word seed phrase here..."
           ></textarea>
-          <button type="button" class="seed-phrase-button">
-            <span class="seed-phrase-button-text">Save</span>
-          </button>
+          <div class="bottom-area">
+            <button type="button" id="seed-phrase-button">
+              <span class="seed-phrase-button-text">Save</span>
+            </button>
+            <div class="confirmation-message">
+              <h1 class="save-message" id="save-message"></h1>
+            </div>
+          </div>
         </div>
-        <div class="checkbox">
+        <!-- <div class="checkbox">
           <input type="checkbox" name="startup" id="startup-checkbox" />
           <label class="startup-label" for="startup"
             >Start Menucaster at login</label
           >
-        </div>
+        </div> -->
       </div>
     </div>
   </body>
