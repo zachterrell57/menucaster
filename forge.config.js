@@ -2,6 +2,7 @@ require("dotenv").config();
 
 module.exports = {
   packagerConfig: {
+    icon: "./assets/app-icon.icns",
     osxSign: {
       identity: "Developer ID Application: Zachary Terrell (25P22K2K3W)",
       "hardened-runtime": true,
