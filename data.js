@@ -1,12 +1,5 @@
 const { ethers } = require("ethers");
 
-document
-  .getElementById("seed-phrase-button")
-  .addEventListener("click", setSeedPhrase);
-
-let text = document.getElementById("mnemonic-textarea");
-text.value = localStorage.getItem("seedPhrase");
-
 function getPkeyFromMnemonic(mnemonic) {
   const hdNode = ethers.utils.HDNode.fromMnemonic(mnemonic).derivePath(
     "m/44'/60'/0'/0/1230940800"
@@ -14,6 +7,10 @@ function getPkeyFromMnemonic(mnemonic) {
 
   return hdNode.privateKey;
 }
+
+document
+  .getElementById("seed-phrase-button")
+  .addEventListener("click", setSeedPhrase);
 
 function setSeedPhrase() {
   let textarea = document.getElementById("mnemonic-textarea");
@@ -42,3 +39,9 @@ function setSeedPhrase() {
   }
   localStorage.setItem("privateKey", pkey);
 }
+
+document.getElementById("seed-phrase-info").addEventListener("click", () => {
+  alert(
+    "The 12-word recovery phrase associated with your Farcaster Ethereum address and username. Use this to sign in to Menucaster. Your seed phrase is only stored locally, and is not sent to any server."
+  );
+});

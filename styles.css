@@ -45,18 +45,18 @@ body {
   border: solid 1px #edefef;
 }
 
-.cast-button {
+.button {
   width: 70px;
   height: 30px;
   border-radius: 6px;
-  margin-right: 45px;
+  margin-right: 25px;
   font-family: "Inter-Medium";
   color: white;
   background-color: #8064c7;
   border: none;
 }
 
-.cast-button:hover {
+.button:hover {
   cursor: pointer;
   background-color: #6944ba;
 }
@@ -107,17 +107,17 @@ body {
 /* Settings page */
 
 .title-area {
-  width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
   flex-direction: row;
   align-items: center;
+  padding-left: 25px;
 }
 
 .title {
   font-family: "Inter-Medium";
-  font-size: 20px;
+  font-size: 16px;
   color: #24292f;
   margin-top: 25px;
   margin-bottom: 0px;
@@ -128,8 +128,7 @@ body {
   background-color: transparent;
   border: none;
   border-radius: 9999px;
-  padding: 0.25rem 0.25rem 0.25rem 0.25rem;
-  margin-left: 25px;
+  padding: 0.25rem;
   margin-top: 25px;
   color: #8a99a4;
 }
@@ -150,28 +149,45 @@ body {
 .items {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  padding: 0.25rem;
+  justify-content: flex-start;
+  padding-left: 25px;
+  margin-left: 0.25rem;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.seed-phrase-info {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 9999px;
+  color: #8a99a4;
+  margin-top: 8px;
+}
+
+.octicon-question {
+  display: inline-block;
+  user-select: none;
+  vertical-align: text-bottom;
+  overflow: visible;
+}
+
+.seed-phrase-info:hover {
+  cursor: pointer;
+  background-color: #eaebee;
+  color: #24292f;
 }
 
 .seed-phrase-input {
   display: flex;
   flex-direction: column;
-}
-
-#seed-phrase-button {
-  padding: 0.25rem;
-  background-color: #8064c7;
-  color: white;
-  border: none;
-  width: 50px;
-  margin-top: 10px;
-  border-radius: 9999px;
-}
-
-#seed-phrase-button:hover {
-  cursor: pointer;
-  background-color: #6944ba;
 }
 
 .seed-phrase-button-text {
@@ -182,11 +198,11 @@ body {
 
 .section-title {
   font-family: "Inter-Medium";
-  font-size: 16px;
+  font-size: 14px;
   color: #24292f;
   margin-top: 8px;
   margin-bottom: 0px;
-  padding: 0.25rem 0.25rem 0.25rem 0;
+  padding: 0.25rem 0.25rem 0.25rem 0rem;
 }
 
 .mnemonic-textarea {
@@ -195,13 +211,17 @@ body {
   resize: none;
   font-family: "Source-Code-Pro-Regular";
   font-size: 12px;
-  width: 250px;
+  width: 300px;
   height: 60px;
 }
 
 .bottom-area {
   display: flex;
   flex-direction: row;
+}
+
+#seed-phrase-button {
+  margin-top: 0.25rem;
 }
 
 .confirmation-message {

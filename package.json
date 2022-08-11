@@ -1,17 +1,31 @@
 {
   "dependencies": {
+    "@electron-forge/maker-dmg": "^6.0.0-beta.65",
     "@standard-crypto/farcaster-js": "^2.0.2",
-    "electron": "^20.0.1",
+    "dotenv": "^16.0.1",
     "electron-reloader": "^1.2.3",
-    "electron-store": "^8.1.0",
+    "electron-squirrel-startup": "^1.0.0",
     "ethers": "^5.6.9",
     "menubar": "^9.2.1"
   },
-  "name": "menucaster",
+  "name": "Menucaster",
   "version": "1.0.0",
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make --arch=arm64,x64 --platform=darwin"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
+    "electron": "^20.0.1"
+  },
+  "config": {
+    "forge": "./forge.config.js"
   }
 }
